@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-
 
 const NewsCategories = () => {
-
   const categories = [
     "business",
     "entertainment",
@@ -18,12 +15,14 @@ const NewsCategories = () => {
   return (
     <section>
       {categories.map((category) => (
-        <div>
+        <div key={category}>
           <h2>{category}</h2>
-          <Link to="/NewsList" state={{category}}>Select</Link>
+          <Link to="/NewsList" state={{ category }}>Select</Link>
         </div>
       ))}
     </section>
   );
 };
+
 export default NewsCategories;
+
