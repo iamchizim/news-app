@@ -19,7 +19,7 @@ const NewsList = () => {
         throw new Error("Failed to find news listings");
       }
       const data = await response.json();
-      setNewsList(data);
+      setNewsList(Array.isArray(data.articles) ? data.articles : []);
     } catch (error) {
       setErrorMesssage("Failed to fetch news listings. Please try again later");
     } finally {
@@ -35,15 +35,16 @@ const NewsList = () => {
 
   return (
     <section>
-    
       {newsList.map((news) => (
         <div key={news.title}>
-            <h3>{news.title}</h3>
-            <p>{news.description}</p>
-            <p>{news.url}</p>
-            <img src={news.urlToImage}></img>
-            <p>{news.publishedAt}</p>
-            <Link to={`/NewsDetails/${news.title}`} state={{news}}>Read More</Link>
+          <img src={news.urlToImage}></img>
+          <h3>Title: {news.title}</h3>
+          <p>Author: {news.author}</p>
+          <p>Description: {news.description}...</p>
+          <p>Published: {news.publishedAt}</p>
+          <Link to={`/NewsDetails/${news.title}`} state={{ news }}>
+            Read More
+          </Link>
         </div>
       ))}
     </section>

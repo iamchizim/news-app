@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NewsCategories from "./components/NewsCategories";
 import NewsDetails from "./components/NewsDetails";
 import NewsList from "./components/NewsList";
+import NotFoundPage from "./components/NotFoundPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/NewsDetails:newsId",
+    path: "/NewsDetails/:title",
     element: <NewsDetails />,
   },
 

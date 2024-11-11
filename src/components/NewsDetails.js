@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 const NewsDetails = () =>{
 const location = useLocation()
-const {news} = location.state
+const news = location.state?.news
 
 if (!news) {
     return <div>No news article Found</div>;
@@ -17,6 +17,7 @@ if (!news) {
             <img src={news.urlToImage}></img>
             <p>{news.publishedAt}</p>
             <p>{news.content}</p>
+            <u
     </section>
   )
 }
