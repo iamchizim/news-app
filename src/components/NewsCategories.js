@@ -13,7 +13,8 @@ const NewsCategories = () => {
   ];
 
   return (
-    <section>
+    <section className="categories-grid">
+      <h1>NEWS APP</h1>
       {categories.map((category) => (
         <div key={category}>
           <h2>{category}</h2>

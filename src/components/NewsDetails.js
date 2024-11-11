@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import LazyLoadImage from "./LazyLoadImage";
 
 const NewsDetails = () => {
   const location = useLocation();
@@ -10,9 +11,9 @@ const NewsDetails = () => {
   }
 
   return (
-    <section>
+    <section className="news-details">
       <h3>{news.title}</h3>
-      <img src={news.urlToImage} alt={news.title || "News image"} />
+      <LazyLoadImage src={news.urlToImage} alt={news.title} />
       <p>{news.description}</p>
       <p>Author: {news.author || "No author provided"}</p>
       <p>Published on: {news.publishedAt}</p>
